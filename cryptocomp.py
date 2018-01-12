@@ -4,6 +4,7 @@ import requests
 import datetime
 import pandas as pd
 import matplotlib.pyplot as plt
+from forex_python.converter import CurrencyRates
 
 def priceUSD(symbol, comparison_symbols=['USD'], exchange=''):
     url = 'https://min-api.cryptocompare.com/data/price?fsym={}&tsyms={}'\
@@ -43,3 +44,7 @@ print("Bitcoin Gold ", priceKRW('BTG', exchange='Bithumb'))
 print("Ethereum Classic ", priceKRW('ETC', exchange='Bithumb'))
 print("Zcash ", priceKRW('ZEC', exchange='Bithumb'))
 
+
+c = CurrencyRates()
+krwusd = c.get_rate('USD', 'KRW')
+print(krwusd, "KRW / USD")
